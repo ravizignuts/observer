@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,4 +19,8 @@ Route::get('/', function () {
 });
 Route::get('/home', function () {
     return view('home');
+});
+Route::get('/delete',function(){
+    Post::whereId(9)->first()->delete();
+    dd('done');
 });
