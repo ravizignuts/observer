@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\FilestorageController;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +19,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/home', function () {
-    return view('home');
-});
 Route::get('/delete',function(){
     Post::whereId(9)->first()->delete();
     dd('done');
+});
+Route::controller(FilestorageController::class)->group(function(){
+    Route::get('index','index');
+    Route::post('upload','upload');
+    Route::get('delete/{path}','delete');
+});
+Route::get('/home', function () {
+    return Storage::makeDirectory('images');
 });

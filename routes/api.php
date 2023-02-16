@@ -4,6 +4,7 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +27,21 @@ Route::get('insert',function(){
     $user->post()->comment()->create([
         'comment_body'  => 'Java is truley OOP Lanaguage'
     ]);
+});
+Route::post('home',function(Request $request){
+    // $file = $request->file;
+    // $filename = 'Ravi.'.$file->extension();
+    // Storage::makeDirectory('laravel');
+    // Storage::putFileAs('laravel',$file,$filename);
+    // Storage::copy('laravel/Ravi.png','public/uploads/Ravi.png');
+    // Storage::move('laravel/Ravi.png','public/uploads/Ravi.png');
+    // Storage::files('public');//return all files without sub directories
+    // Storage::allFiles('public');//return all files  with sub directories
+    // Storage::download('public/uploads/Ravi.png');//return all files  with sub directories
+    // return Storage::deleteDirectory('public/uploads');//return all files  with sub directories
+
+
+
+
+
 });
